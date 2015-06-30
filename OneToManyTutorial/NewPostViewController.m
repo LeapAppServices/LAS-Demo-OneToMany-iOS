@@ -28,7 +28,7 @@
 
 - (void)addButtonTouchHandler:(id)sender
 {
-    // Create a new Post object and create relationship with PFUser
+    // Create a new Post object and create relationship with LASUser
     LASObject *newPost = [LASObject objectWithClassName:@"Post"];
     [newPost setObject:[textView text] forKey:@"textContent"];
     [newPost setObject:[LASUser currentUser] forKey:@"author"]; // One-to-Many relationship created here!
@@ -38,7 +38,7 @@
     [postACL setPublicReadAccess:YES];
     [newPost setACL:postACL];
     
-    // Save new Post object in Parse
+    // Save new Post object in LAS
     [LASDataManager saveObjectInBackground:newPost block:^(BOOL succeeded, NSError *error) {
         if (!error) {
             [self dismissViewControllerAnimated:YES completion:nil]; // Dismiss the viewController upon success

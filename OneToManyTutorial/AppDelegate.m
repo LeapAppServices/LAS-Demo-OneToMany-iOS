@@ -29,7 +29,7 @@
      This little piece of code will create a new user called Matt. If this user already exists, it will simply
      log Matt into the app. This is not the typical behaviour you would want, but it will allow you to play
      with object relationships without having to worry too much about user management. To learn more about
-     the PFUser class take a look at the documentation here https://www.parse.com/docs/ios_guide#users 
+     the LASUser class take a look at the documentation here https://leap.as/en_us/docs/cloudData/ios.html#Users
      */
     LASUser *user = [LASUser user];
     user.username = @"Matt";
