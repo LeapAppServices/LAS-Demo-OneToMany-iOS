@@ -1,26 +1,22 @@
-# Geolocations
+# One-to-Many Relationships Tutorial
 
-## 介绍
+## Overview
 
-Geolocations 介绍如何利用 LAS 保存一个地理位置坐标，如何查询某个地理范围内的位置记录。
+TThe project teaches you how to create a one-to-many relationship on LAS with the example of a simple blog app.
 
-## 演示功能
+## Features
 
-- 保存现在的地理位置坐标
-- 查询附近的位置记录
+- User log in
+- Create relationship data
+- Check your own post list
 
-## 效果截图
+## How to Run
 
-![](docs/images/1.png)
-![](docs/images/2.png)
+1. Log in leap.as console and create an app. You can skip this step if you've already created one.
+2. Clone the repository and open project with Xcode.
+3. Add your LAS application id and client key in `AppDelegate.m`.
 
-## 如何运行
+## Learn More 
 
-- 克隆这个仓库，然后打开项目
-- 在 leap.as 控制台中创建一个应用，下面称他为 LAS 应用。如果已经创建，跳过这个步骤。
-- 在 `AppDelegate.` 中填写 LAS 应用的 applicationId 和 clientKey.
-- 按下 Commond + R 按钮运行
+Please check official [LAS iOS Guide](https://leap.as/docs/cloudData/ios.html) to learn more details. 
 
-## 了解更多
-
-详细信息请查看官方 [LAS iOS 开发指南](https://leap.as/docs/cloudData/ios.html);
