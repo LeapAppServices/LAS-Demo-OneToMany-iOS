@@ -1,6 +1,7 @@
 //
 
 #import "NewPostViewController.h"
+#import <MaxLeap/MaxLeap.h>
 
 @implementation NewPostViewController
 
@@ -28,18 +29,13 @@
 
 - (void)addButtonTouchHandler:(id)sender
 {
-    // Create a new Post object and create relationship with LASUser
-    LASObject *newPost = [LASObject objectWithClassName:@"Post"];
+    // Create a new Post object and create relationship with MLUser
+    MLObject *newPost = [MLObject objectWithClassName:@"Post"];
     [newPost setObject:[textView text] forKey:@"textContent"];
-    [newPost setObject:[LASUser currentUser] forKey:@"author"]; // One-to-Many relationship created here!
+    [newPost setObject:[MLUser currentUser] forKey:@"author"]; // One-to-Many relationship created here!
     
-    // Set ACL permissions for added security
-    LASACL *postACL = [LASACL ACLWithUser:[LASUser currentUser]];
-    [postACL setPublicReadAccess:YES];
-    [newPost setACL:postACL];
-    
-    // Save new Post object in LAS
-    [LASDataManager saveObjectInBackground:newPost block:^(BOOL succeeded, NSError *error) {
+    // Save new Post object in MaxLeap
+    [newPost saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
             [self dismissViewControllerAnimated:YES completion:nil]; // Dismiss the viewController upon success
         }

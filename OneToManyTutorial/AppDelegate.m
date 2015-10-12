@@ -3,6 +3,8 @@
 #import "AppDelegate.h"
 #import "BlogTableViewController.h"
 
+#import <MaxLeap/MaxLeap.h>
+
 @implementation AppDelegate
 
 @synthesize window = _window;
@@ -14,10 +16,10 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     // ****************************************************************************
-    // Uncommit and fill in with your LAS credentials:
+    // Uncommit and fill in with your MaxLeap credentials:
     // ****************************************************************************
-#warning Please fill in with your LAS credentials
-    // [LAS setApplicationId:@"APPLICATION_ID_HERE" clientKey:@"CLIENT_KEY_HERE"];
+#warning Please fill in with your MaxLeap credentials
+    // [MaxLeap setApplicationId:@"APPLICATION_ID_HERE" clientKey:@"CLIENT_KEY_HERE"];
     
     BlogTableViewController *rootVC = [[BlogTableViewController alloc] initWithStyle:UITableViewStylePlain];
     
@@ -29,19 +31,19 @@
      This little piece of code will create a new user called Matt. If this user already exists, it will simply
      log Matt into the app. This is not the typical behaviour you would want, but it will allow you to play
      with object relationships without having to worry too much about user management. To learn more about
-     the LASUser class take a look at the documentation here https://leap.as/en_us/docs/cloudData/ios.html#Users
+     the MLUser class take a look at the documentation here https://leap.as/en_us/guide/devguide/ios.html#users
      */
-    LASUser *user = [LASUser user];
+    MLUser *user = [MLUser user];
     user.username = @"Matt";
     user.password = @"password";
     user.email = @"Matt@example.com";
-    [LASUserManager signUpInBackground:user block:^(BOOL succeeded, NSError *error) {
+    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         NSLog(@"user sign up succeeded %d, error: %@", succeeded, error);
         if (!error) {
             // Hooray! Let them use the app now.
             [rootVC refreshButtonHandler:nil];
         } else {
-            [LASUserManager logInWithUsernameInBackground:@"Matt" password:@"password" block:^(LASUser *user, NSError *error) {
+            [MLUser logInWithUsernameInBackground:@"Matt" password:@"password" block:^(MLUser *user, NSError *error) {
                 if (user) {
                     NSLog(@"user log in, user: %@", user);
                     [rootVC refreshButtonHandler:nil];

@@ -2,6 +2,7 @@
 
 #import "BlogTableViewController.h"
 #import "NewPostViewController.h"
+#import <MaxLeap/MaxLeap.h>
 
 @implementation BlogTableViewController
 
@@ -22,7 +23,7 @@
 
 - (void)viewWillAppear:(BOOL)animated 
 {
-    if ([LASUser currentUser])
+    if ([MLUser currentUser])
         [self refreshButtonHandler:nil];
 }
 
@@ -31,11 +32,11 @@
 - (void)refreshButtonHandler:(id)sender
 {
     //Create query for all Post object by the current user
-    LASQuery *postQuery = [LASQuery queryWithClassName:@"Post"];
-    [postQuery whereKey:@"author" equalTo:[LASUser currentUser]];
+    MLQuery *postQuery = [MLQuery queryWithClassName:@"Post"];
+    [postQuery whereKey:@"author" equalTo:[MLUser currentUser]];
     
     // Run the query
-    [LASQueryManager findObjectsInBackgroundWithQuery:postQuery block:^(NSArray *objects, NSError *error) {
+    [postQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             //Save results and update the table
             postArray = objects;
@@ -69,7 +70,7 @@
     }
     
     // Configure the cell with the textContent of the Post as the cell's text label
-    LASObject *post = [postArray objectAtIndex:indexPath.row];
+    MLObject *post = [postArray objectAtIndex:indexPath.row];
     [cell.textLabel setText:[post objectForKey:@"textContent"]];
     
     return cell;
