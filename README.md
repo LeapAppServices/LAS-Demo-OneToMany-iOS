@@ -2,7 +2,7 @@
 
 ## Overview
 
-TThe project teaches you how to create a one-to-many relationship on LAS with the example of a simple blog app.
+The project teaches you how to create a one-to-many relationship on MaxLeap with the example of a simple blog app.
 
 ## Features
 
@@ -14,9 +14,9 @@ TThe project teaches you how to create a one-to-many relationship on LAS with th
 
 1. Log in leap.as console and create an app. You can skip this step if you've already created one.
 2. Clone the repository and open project with Xcode.
-3. Add your LAS application id and client key in `AppDelegate.m`.
+3. Add your MaxLeap application id and client key in `AppDelegate.m`.
 
 ## Learn More 
 
-Please check official [LAS iOS Guide](https://leap.as/docs/cloudData/ios.html) to learn more details. 
+Please check official [MaxLeap iOS Guide](https://leap.as/en_us/guide/devguide/ios.htm) to learn more details. 
 
