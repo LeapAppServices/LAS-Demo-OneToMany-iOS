@@ -12,9 +12,16 @@ The project teaches you how to create a one-to-many relationship on MaxLeap with
 
 ## How to Run
 
-1. Log in leap.as console and create an app. You can skip this step if you've already created one.
-2. Clone the repository and open project with Xcode.
-3. Add your MaxLeap application id and client key in `AppDelegate.m`.
+1. Log in [MaxLeap console](http://maxleap.com) and create an app. You can skip this step if you've already created one.
+2. Add class `Post` with columns:
+	
+	Column Name | Type
+	------------|-----
+	textContent | String
+	author		  | Pointer, target class `_User`
+	
+3. Clone the repository and open project with Xcode.
+4. Add your MaxLeap application id and client key in `AppDelegate.m`.
 
 ## Learn More 
 
